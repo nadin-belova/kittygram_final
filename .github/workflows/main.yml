@@ -153,9 +153,11 @@ jobs:
             cd kittygram
             # Выполняет pull образов с Docker Hub
             sudo docker compose -f docker-compose.production.yml pull
+            sleep 30
             # Перезапускает все контейнеры в Docker Compose
             sudo docker compose -f docker-compose.production.yml down
             sudo docker compose -f docker-compose.production.yml up -d
+            sleep 30
             # Выполняет миграции и сбор статики
             sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
             sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
