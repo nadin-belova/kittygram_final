@@ -18,7 +18,7 @@ services:
     volumes:
 
       #- static:/app/backend_static/
-      - static:/backend_static/
+      - static:/backend_static
       - media:/media/
 
   frontend:
@@ -37,5 +37,5 @@ services:
       - 9000:80
     volumes:
       #- static:/static
-      - static:/staticfiles/
+      - static:/staticfiles
       - media:/media
