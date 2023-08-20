@@ -16,15 +16,15 @@ services:
     build: ./backend/
     env_file: .env
     volumes:
-      - static:/app/backend_static/
-      - media:/app/media/
+      - static:/backend_static
+      - media:/media
 
   frontend:
     env_file: .env
     build: ./frontend/
     command: cp -r /app/build/. /static/
     volumes:
-      - static:/static
+      - static:/frontend_static
 
   gateway:
     build: ./nginx/
@@ -33,3 +33,4 @@ services:
       - 9000:80
     volumes:
       - static:/static
+      - media:/media
