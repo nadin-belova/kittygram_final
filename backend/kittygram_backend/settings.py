@@ -8,7 +8,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.environ.get("DEBUG", False)
 
-ALLOWED_HOSTS = ['nice-kittygram.hopto.org', '158.160.73.84', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['nice-kittygram.hopto.org', '158.160.73.84',
+                 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -98,10 +99,7 @@ STATIC_ROOT = BASE_DIR / 'collected_static'
 
 
 MEDIA_URL = '/media/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = '/media/'
-
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
