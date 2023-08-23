@@ -16,8 +16,6 @@ services:
     image: nadia1983/kittygram_backend
     env_file: .env
     volumes:
-
-      #- static:/app/backend_static/
       - static:/backend_static
       - media:/media
 
@@ -25,10 +23,8 @@ services:
     env_file: .env
     image: nadia1983/kittygram_frontend
     command: cp -r /app/build/. /static/
-    #command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/static
-      #- static:/frontend_static
 
   gateway:
     image: nadia1983/kittygram_gateway
@@ -37,5 +33,4 @@ services:
       - 9000:80
     volumes:
       - static:/static
-      #- static:/staticfiles
       - media:/media
