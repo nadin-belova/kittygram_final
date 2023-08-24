@@ -64,9 +64,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('POSTGRES_DB', 'django'),
         'USER': env('POSTGRES_USER', 'django'),
-        #хост я поменяла,а пароль не поняла вообще что надо делать
-        'PASSWORD': env('POSTGRES_PASSWORD', ''),
-        'HOST': env('DB_HOST', '127.0.0.1'),
+        'PASSWORD': env('POSTGRES_PASSWORD', default='default_password'),
+        'HOST': env('DB_HOST', default='127.0.0.1'),
         'PORT': env('DB_PORT', 5432),
     }
 }
