@@ -1,13 +1,17 @@
 # flake8: noqa
-
+import environ
 import os
 from pathlib import Path
 
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = os.environ.get("DEBUG", False)
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['nice-kittygram.hopto.org', '158.160.73.84',
                  'localhost', '127.0.0.1']
@@ -58,12 +62,12 @@ WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'django'),
-        'USER': os.getenv('POSTGRES_USER', 'django'),
-        # Не понятно замечание,проект и так запускается с мин настройками
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', ''),
-        'PORT': os.getenv('DB_PORT', 5432),
+        'NAME': env('POSTGRES_DB', 'django'),
+        'USER': env('POSTGRES_USER', 'django'),
+        #хост я поменяла,а пароль не поняла вообще что надо делать
+        'PASSWORD': env('POSTGRES_PASSWORD', ''),
+        'HOST': env('DB_HOST', '127.0.0.1'),
+        'PORT': env('DB_PORT', 5432),
     }
 }
 
